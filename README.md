@@ -140,4 +140,10 @@ $ curl -s http://localhost:8080/actuator | jq --indent 1
 
 # run in kubernetes
 ```
+$ brew install kubernetes-helm
+$ helm create helm 
+$ helm template helm \
+  --name spring-boot-actuators \
+  --set image.repository=marcelmaatkamp/spring-boot-actuators \
+  --set image.tag=latest | kubectl apply -f 
 ```
