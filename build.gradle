@@ -1,0 +1,39 @@
+plugins {
+ id 'org.springframework.boot' version '2.1.9.RELEASE'
+ id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+ id "com.google.cloud.tools.jib" version "1.6.1"
+ id 'java'
+}
+
+group = 'com.marcelmaatkamp.application'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+ mavenCentral()
+}
+
+dependencies {
+ implementation 'org.springframework.boot:spring-boot-starter-actuator'
+ implementation 'org.springframework.boot:spring-boot-starter-web'
+ testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+jib {
+  from {
+    image = 'openjdk:alpine'
+  }
+  to {
+    image = 'marcelmaatkamp/spring-boot-actuators'
+    // credHelper = 'osxkeychain'
+    tags = ['tag2', 'latest']
+  }
+  container {
+    jvmFlags = ['-Xms512m', '-Xdebug', '-XX:+PrintFlagsFinal', '-XshowSettings:vm']
+    mainClass = 'application.Application'
+    args = ['some', 'args']
+    ports = ['8080', '8081']
+    labels = [key1:'value1', key2:'value2']
+    format = 'OCI'
+  }
+}
