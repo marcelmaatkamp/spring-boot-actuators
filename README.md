@@ -1,4 +1,5 @@
-# spring boot actuatorsa
+# spring boot actuators
+Small example on how to use spring boot actuators. This example will later be used to show how in kubernetes these mettrics with liveness and readiness signals will automically heal our application.
 
 # prereq
 
