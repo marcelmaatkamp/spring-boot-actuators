@@ -3,9 +3,17 @@ Small example on how to use spring boot actuators. This example will later be us
 
 ![](https://github.com/marcelmaatkamp/spring-boot-actuators/blob/master/images/Untitled%20Diagram.png?raw=true)
 
-# prereq
-
-## mac
+See for some excellent discussion the following pages:
+ * https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command 
+ * https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-setting-up-health-checks-with-readiness-and-liveness-probes
+ * https://medium.com/spire-labs/utilizing-kubernetes-liveness-and-readiness-probes-to-automatically-recover-from-failure-2fe0314f2b2e
+ 
+# prerequisites
+ * java
+ * gradle
+ * docker
+ 
+## mac osx
 ```
 $ brew install sdkman jq
 $ sdk install java 
@@ -137,7 +145,6 @@ $ curl -s localhost:8081/actuator/health | jq --indent 1
 $ gradle jibDockerBuild
 $ docker run -p 8080:8080 marcelmaatkamp/spring-boot-actuators
 $ curl -s http://localhost:8080/actuator | jq --indent 1
-
 ```
 
 # run in kubernetes
