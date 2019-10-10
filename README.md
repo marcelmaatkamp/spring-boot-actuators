@@ -1,6 +1,8 @@
 # spring boot actuators
 Small example on how to use spring boot actuators. This example will later be used to show how in kubernetes these mettrics with liveness and readiness signals will automically heal our application.
 
+![](https://github.com/marcelmaatkamp/spring-boot-actuators/blob/master/images/Untitled%20Diagram.png?raw=true)
+
 # prereq
 
 ## mac
