@@ -139,11 +139,16 @@ $ curl -s http://localhost:8080/actuator | jq --indent 1
 ```
 
 # run in kubernetes
+https://kubesail.com
 ```
 $ brew install kubernetes-helm
 $ helm create helm 
 $ helm template helm \
   --name spring-boot-actuators \
   --set image.repository=marcelmaatkamp/spring-boot-actuators \
-  --set image.tag=latest | kubectl apply -f 
+  --set image.tag=latest \
+  --set image.pullPolicy=Always | kubectl apply -f -
+$ kubectl get pods
+NAME                                    READY   STATUS    RESTARTS   AGE
+spring-boot-actuators-54c7f98f6-5f2qz   1/1     Running   0          59s
 ```
